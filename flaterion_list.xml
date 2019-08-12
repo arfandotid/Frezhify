@@ -975,7 +975,7 @@ body#layout .section#sidebar-sticky::before{
                   <b:class cond='data:view.isMultipleItems' name='post-list box'/>
                   <b:tag class='grid' cond='data:view.isMultipleItems' name='div'>
                     <b:if cond='data:view.isMultipleItems'>
-                      <a class='post-thumbnail' expr:href='data:post.url' title='data:post.title'>
+                      <a class='post-thumbnail' expr:href='data:post.url' expr:title='data:post.title'>
                         <img class='lazyload' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.thumbnailUrl,200,&quot;4:3&quot;)' expr:title='data:post.title'/>
                       </a>
                     </b:if>
