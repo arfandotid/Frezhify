@@ -216,15 +216,16 @@ h1.post-title,h2.post-title{font-family:'Google Sans',sans-serif}
 }
 
 /* CARDPOST HEADER */
-.multi-posts .post-header{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:space-between;font-size:13px;color:#757575;position:relative;width:100%;padding:10px 15px}
-.post-header .left{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;overflow:hidden;margin-right:20px;line-height:normal}
-.post-header .left img{float:left;max-width:30px;max-height:30px;border-radius:100px;vertical-align:middle;margin-right:10px;margin-top:4px}
-.post-header .left .text{overflow:hidden}
-.post-header .post-author{font-size:14px;font-weight:700;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.post-header .post-author a{color:#333}
-.post-header .post-timestamp{font-size:12px}
-.post-header .right{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.post-header a{color:#757575}
+.multi-posts .post-header{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:space-between;font-size:13px;color:#757575;position:relative;width:100%;padding:10px 15px;border-top: 5px solid #4285f4;
+border-radius: 7px;}
+.multi-posts .post-header .left{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;overflow:hidden;margin-right:20px;line-height:normal}
+.multi-posts .post-header .left img{float:left;max-width:30px;max-height:30px;border-radius:100px;vertical-align:middle;margin-right:10px;margin-top:4px}
+.multi-posts .post-header .left .text{overflow:hidden}
+.multi-posts .post-header .post-author{font-size:14px;font-weight:700;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.multi-posts .post-header .post-author a{color:#333}
+.multi-posts .post-header .post-timestamp{font-size:12px}
+.multi-posts .post-header .right{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.multi-posts .post-header a{color:#757575}
 
 /* LOADMORE */
 .loadmore{margin:20px 0;padding:10px 0;display:block;text-align:center}
@@ -241,7 +242,7 @@ h1.post-title,h2.post-title{font-family:'Google Sans',sans-serif}
 #content .post .post-thumbnail,#content .post .post-text{grid-column: span 12;}
 }
 #sidebar .widget{font:$(sidebar.widget.font)}
-#sidebar-static{margin-bottom: 20px;}
+#sidebar,#sidebar-static{margin-bottom: 20px;}
 #sidebar .widget{background-color:#fff;margin-bottom:30px;border-top:5px solid #4285f4;border-radius:7px;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}
 #sidebar .widget:last-child{margin-bottom:0}
 #sidebar h3.title{padding:10px 15px;border-bottom:1px solid #ccc;font:$(widget.title.font);}
@@ -287,7 +288,7 @@ h1.post-title,h2.post-title{font-family:'Google Sans',sans-serif}
 .BlogArchive h3.title:before{background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15,13H16.5V15.82L18.94,17.23L18.19,18.53L15,16.69V13M19,8H5V19H9.67C9.24,18.09 9,17.07 9,16A7,7 0 0,1 16,9C17.07,9 18.09,9.24 19,9.67V8M5,21C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H6V1H8V3H16V1H18V3H19A2,2 0 0,1 21,5V11.1C22.24,12.36 23,14.09 23,16A7,7 0 0,1 16,23C14.09,23 12.36,22.24 11.1,21H5M16,11.15A4.85,4.85 0 0,0 11.15,16C11.15,18.68 13.32,20.85 16,20.85A4.85,4.85 0 0,0 20.85,16C20.85,13.32 18.68,11.15 16,11.15Z' fill='%23fff'/%3E%3C/svg%3E");}
 
 /* FOOTER */
-#footer{box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);margin-top:30px;background:$(footer.bgcolor);border-top:1px solid #eee;color:$(footer.text.color);padding:30px 0 0}
+#footer{box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);background:$(footer.bgcolor);border-top:1px solid #eee;color:$(footer.text.color);padding:30px 0 0}
 #footer .footer-top{padding-bottom:30px}
 #footer .footer-logo{grid-column:span 2}
 #footer .footer-about{grid-column:span 7;padding:0 15px}
@@ -1039,11 +1040,9 @@ body#layout .section#sidebar-sticky::before{
                           <img expr:alt="data:post.author.name" class='lazyload' expr:data-src="resizeImage(data:post.author.authorPhoto.image, 30,&quot;1:1&quot;)" expr:title="data:post.author.name"/>
                         </div>
                         <div class="text">
-                          <span class="post-author vcard" itemprop="author" itemscope="itemscope" itemtype="https://schema.org/Person">
-                            <a expr:href="data:post.author.profileUrl" rel="author" expr:title="data:post.author.name">
-                              <span class="fn author">
-                                <span itemprop="name"><data:post.author.name/></span>
-                              </span>
+                          <span class="post-author vcard">
+                            <a expr:href="data:post.author.profileUrl" expr:title="data:post.author.name">
+                              <data:post.author.name/>
                             </a>
                           </span>
                           <span class="post-timestamp">
