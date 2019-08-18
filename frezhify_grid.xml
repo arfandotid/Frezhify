@@ -18,7 +18,7 @@
 <Group description="Body">
   <Variable name="body.background" description="Background" color="$(body.background.color)" type="background" default="$(color) none repeat scroll top left"  value="$(color) none repeat scroll top left"/>
   <Variable name="body.background.color" description="Body background color" type="color" default="#fff"  value="#ffffff"/>
-  <Variable name="body.text.font" description="Body Font" type="font" default="400 16px Google Sans, sans-serif"  value="400 16px Roboto, sans-serif"/>
+  <Variable name="body.text.font" description="Body Font" type="font" default="400 16px Roboto, sans-serif"  value="400 16px Roboto, sans-serif"/>
   <Variable name="body.text.color" description="Color" type="color" default="#4e5665"  value="#4e5665"/>
 <Variable name="body.link.color" description="Link color" type="color" default="#4e5665"  value="#4e5665"/>
 <Variable name="body.link.hover.color" description="Link cover color" type="color" default="$(keycolor)"  value="#4285f4"/>
@@ -31,6 +31,7 @@
 <Group description="Post">
 <Variable name="post.label.font" description="Post Label Font" type="font" default="500 14px 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen-Sans', 'Helvetica Neue', Arial, sans-serif;"  value="500 14px &#39;Quicksand&#39;, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, &#39;Oxygen-Sans&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif;"/>
 <Variable name="post.title.font" description="Post Title Font" type="font" default="500 17px 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen-Sans', 'Helvetica Neue', Arial, sans-serif;"  value="500 17px &#39;Quicksand&#39;, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, &#39;Oxygen-Sans&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif;"/>
+<Variable name="article.title.font" description="Article Title Font" type="font" default="500 22px 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen-Sans', 'Helvetica Neue', Arial, sans-serif;"  value="500 22px &#39;Roboto&#39;, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, &#39;Oxygen-Sans&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif;"/>
 </Group>
 <Group description="Sidebar">
 <Variable name="sidebar.widget.font" description="Sidebar Widget Font" type="font" default="400 14px 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen-Sans', 'Helvetica Neue', Arial, sans-serif;"  value="400 14px &#39;Quicksand&#39;, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, &#39;Oxygen-Sans&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif;"/>
@@ -57,12 +58,14 @@
 @keyframes slideInDown{from{-webkit-transform:translate3d(0,-20%,0);transform:translate3d(0,-20%,0);visibility:visible}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}
 @-webkit-keyframes slideInLeft{from{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);visibility:visible}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}
 @keyframes slideInLeft{from{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);visibility:visible}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}
+@-webkit-keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}@keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
+
 
 /* GLOBALCSS */
 .center{text-align:center;display:block;margin:auto}
 *{word-wrap:break-word!important;margin:0;padding:0;outline:0!important;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;-webkit-font-smoothing:subpixel-antialiased}
 html{font-family:"Segoe UI","Helvetica Neue",Helvetica,sans-serif}
-body{min-height:100vh;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:400;line-height:1.6;color:#4e5665;padding-top:60px;background:#eee}
+body{min-height:100vh;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:400;line-height:1.6;color:#4e5665;padding-top:60px;background:#eee;-webkit-animation:fadeIn 1s both;animation:fadeIn 1s both}
 i.icon{line-height:1}
 input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 input[type=number]{-moz-appearance:textfield}
@@ -102,13 +105,14 @@ body.hideScroll{overflow:hidden}
 #header .blog_search ul a{padding:5px 15px}
 #header .blog_search ul a:hover{background:#fff}
 #header .headerSearch form{display:block;position:relative;background:#fafafa;border-radius:3px}
-#header .headerSearch form i.ion-ios-search{display:block;height:40px;line-height:40px;width:40px;text-align:center;font-size:150%;color:$(body.link.color);position:absolute;top:0;left:10px}
-#header .headerSearch form i.ion-ios-arrow-back{display:none;height:40px;line-height:40px;width:40px;text-align:center;font-size:150%;color:#4e5665;position:absolute;z-index:2;top:0;left:10px}
-#header .headerSearch form i.ion-md-close{display:none;height:40px;line-height:40px;width:40px;text-align:center;font-size:150%;color:#aaa;position:absolute;z-index:3;top:0;right:10px;cursor:pointer}
+#header .headerSearch form svg.search{display:block;height:40px;line-height:40px;width:40px;padding:10px;text-align:center;position:absolute;top:0;left:10px;vertical-align:middle}
+#header .headerSearch form svg.back{height:40px;line-height:40px;width:20px;padding:0;text-align:center;position:absolute;z-index:2;top:0;left:10px;vertical-align:middle}
+#header .headerSearch form svg.close-icon{display:none;height:40px;line-height:40px;width:40px;padding:10px;text-align:center;position:absolute;z-index:3;top:0;right:10px;cursor:pointer;vertical-align:middle}
 #header .headerSearch form .text{position:relative;z-index:1;display:block;width:100%;height:40px;line-height:40px;margin:10px 0;padding:0 55px;background:0;border:0;font-size:100%}
 #header .headerSearch form .text::placeholder{opacity:.8}
 #header .headerRight{position:relative}
 @media only screen and (min-width:1068px){
+#header .headerSearch form svg.back{display:none;}
 #header .blog_menu ul{list-style:none}
 #header .blog_menu ul li{float:left}
 #header .blog_menu ul li a{line-height:60px;padding:22px 16px;font-weight:500;color:$(nav.link.color.desktop)}
@@ -118,11 +122,11 @@ body.hideScroll{overflow:hidden}
 #header .blog_menu ul li.dd:hover ul{display:inline-table}
 #header .blog_menu ul ul li{float:none}
 #header .blog_menu ul ul li a{color:#393939}
-#header .blog_menu ul li.dd a::after{content:'\f3d0';font-family:IonIcons;font-weight:600;display:inline-block;vertical-align:middle;margin-left:5px;transition:all .2s}
+#header .blog_menu ul li.dd a::after{content:'';background:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' fill='%23ffffff'/%3E%3C/svg%3E") center /18px no-repeat;padding:8px;display:inline-block;vertical-align:middle;margin-left:5px;transition:all .2s}
 #header .blog_menu ul>li.dd:hover>a::after{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
 #header .blog_menu ul li.dd ul li a::after{display:none}
 #header .blog_menu ul ul li a{line-height:1;padding:14px 16px;text-decoration:none;display:block;text-align:left}
-#header .blog_menu ul ul li a:hover{background:rgba(0,0,0,.04);color:#4285f4}
+#header .blog_menu ul ul li a:hover{background:rgba(0,0,0,.04);}
 }
 @media only screen and (max-width:1068px){
 #header .blog_menu{display:none;background:#fff;border-radius:0 0 2px 2px;position:absolute;top:100%;right:0;width:220px}
@@ -130,10 +134,9 @@ body.hideScroll{overflow:hidden}
 #header .blog_menu ul li{display:block}
 #header .blog_menu ul li a{display:block;color:$(body.link.color);padding:15px;font-size:95%;font-weight:500}
 #header .blog_menu ul li a.active{font-weight:600;color:#4285f4}
-#header .blog_menu>ul>li.dd>a:after{content:'\f3d0';font-family:IonIcons;display:inline-block;vertical-align:middle;color:$(body.link.color);font-weight:600;margin:0 5px;transition:.2s}
+#header .blog_menu>ul>li.dd>a:after{content:'';background:transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' fill='%234e5665'/%3E%3C/svg%3E") center /18px no-repeat;padding:8px;display:inline-block;vertical-align:middle;margin:0 5px;transition:.2s}
 #header .blog_menu>ul>li.dd.active>a:after{transform:rotate(180deg)}
-#header .blog_menu ul li a:hover{background:#f5f5f5;color:#4285f4}
-#header .blog_menu>ul>li.dd.active>a,#header .blog_menu>ul>li.dd.active>a:after{background:#f2f2f2;color:#4285f4}
+#header .blog_menu ul li a:hover{background:#f5f5f5;}
 #header .blog_menu ul li a:hover:after{color:#4285f4}
 #header .blog_menu>ul>li{border-bottom:1px solid rgba(0,0,0,.06)}
 #header .blog_menu>ul>li:last-of-type{border-bottom:0}
@@ -151,6 +154,8 @@ body.hideScroll{overflow:hidden}
 #header .headerSearch .ion-ios-arrow-back{display:block!important}
 #header a.single.btnSearch.mobile{color:#fff}
 #header a.single.btnSearch.mobile:active{background:transparent}
+#header a.single.btnSearch.mobile svg{width:18px;height:18px;vertical-align:middle}
+#header a.single.btnSearch.mobile svg path{fill:#fff;}
 #header .blog_search{display:block!important;width:100%;position:fixed;top:48px;left:0;width:100%;height:calc(100% - 48px);overflow-y:auto;padding-top:0;background:#fff;border-radius:0;box-shadow:none}
 #header .blog_menu{display:none;background:#fff;box-shadow:0 100px 0 0 #fff;border-radius:0 0 2px 2px;position:fixed!important;position:relative;z-index:+200;top:60px;left:0;right:auto;height:calc(100% - 60px);width:calc(100% - 50px);-webkit-animation-duration:.5s;animation-duration:.5s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:slideInLeft;animation-name:slideInLeft}
 #header .blog_menu>ul{margin:0;display:block;position:absolute;top:0;left:0;width:100%;background:#fff;height:100%!important;max-height:100%;overflow:hidden;overflow-y:auto}
@@ -179,7 +184,8 @@ body.hideScroll{overflow:hidden}
 /* CONTENT LAYOUT */
 .grid{display:grid;grid-template-columns:repeat(12,1fr)}
 #main-wrapper{display:grid;grid-template-columns:68% auto;grid-column-gap:30px;padding:30px 0 10px}
-h1.post-title,h2.post-title{font-family:'Google Sans',sans-serif}
+.isPage #main-wrapper{grid-template-columns:1fr;grid-gap:0;margin-bottom: 30px}
+.single-post h1.post-title,h2.post-title{font:$(article.title.font)}
 .post-body{font:$(body.text.font);text-align:left;line-height:1.6}
 .post-body .tr-caption{font-size:13px;color:#888;display:block;margin:5px auto}
 .post-body .tr-caption a{color:#888}
@@ -195,15 +201,19 @@ h1.post-title,h2.post-title{font-family:'Google Sans',sans-serif}
 .multi-posts .post-outer .post .post-title{line-height:1.3;padding:10px 15px;margin:0 0 7px 0;font:$(post.title.font)}
 .multi-posts .post-outer .post .post-title a:hover{color:#333}
 .post-footer{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;align-self:flex-end;justify-content:space-between;padding:15px;font-size:13px;overflow:hidden;white-space:nowrap;width:100%;line-height:normal;}
-@media only screen and (max-width:480px){
-  #main-wrapper{grid-template-columns: 1fr;grid-column-gap:0;grid-row-gap:20px}
-  .multi-posts #content .blog-posts{grid-gap:15px;}
-  .multi-posts .post-outer .post-label{padding: 10px 10px 0}
-  .multi-posts .post-outer .post .post-title{font-size:13px;padding: 7px 10px;}
-  .multi-posts #content .post-outer .post-footer{font-size:11px}
-  .multi-posts #content .post-outer .post-footer{padding: 10px 10px 15px}
+@media only screen and (max-width:768px){
+#main-wrapper{grid-template-columns: 1fr;grid-column-gap:0;grid-row-gap:20px}
+.multi-posts #content .blog-posts{grid-gap:15px;}
 }
-@media screen and (max-width:320px){
+@media only screen and (max-width:480px){
+.multi-posts #content .blog-posts{grid-gap:15px;}
+.multi-posts .post-outer .post .post-label{padding: 10px 10px 0}
+.multi-posts .post-outer .post .post-title{font-size:13px;padding: 7px 10px;}
+.multi-posts #content .post-outer .card-header{font-size:11px;padding: 10px 10px 15px}
+.multi-posts #content .post-outer .card-header .right .post-comment{display:none}
+.multi-posts .post-outer .post .post-thumbnail{display:block}
+}
+@media screen and (max-width:400px){
   .multi-posts #content .blog-posts{grid-template-columns:1fr;grid-gap:20px;}
 }
 
@@ -216,19 +226,22 @@ h1.post-title,h2.post-title{font-family:'Google Sans',sans-serif}
 }
 
 /* CARDPOST HEADER */
-.multi-posts .post-header{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:space-between;font-size:13px;color:#757575;position:relative;width:100%;padding:10px 15px;border-top: 5px solid #4285f4;
-border-radius: 7px;}
-.multi-posts .post-header .left{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;overflow:hidden;margin-right:20px;line-height:normal}
-.multi-posts .post-header .left img{float:left;max-width:30px;max-height:30px;border-radius:100px;vertical-align:middle;margin-right:10px;margin-top:4px}
-.multi-posts .post-header .left .text{overflow:hidden}
-.multi-posts .post-header .post-author{font-size:14px;font-weight:700;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.multi-posts .post-header .post-author a{color:#333}
-.multi-posts .post-header .post-timestamp{font-size:12px}
-.multi-posts .post-header .right{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.multi-posts .post-header a{color:#757575}
+.card-header{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:space-between;font-size:13px;color:#757575;position:relative;width:100%;}
+.multi-posts .card-header{border-top: 5px solid #4285f4;border-radius: 7px;padding:10px 15px;}
+.single-post .card-header{margin-bottom: 20px}
+.card-header .left{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;align-items:flex-start;overflow:hidden;margin-right:20px;line-height:normal}
+.card-header .left img{float:left;max-width:30px;max-height:30px;border-radius:100px;vertical-align:middle;margin-right:10px;margin-top:4px}
+.card-header .left .text{overflow:hidden}
+.card-header .post-author{font-size:14px;font-weight:700;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-header .post-author a{color:#333}
+.card-header .post-timestamp{font-size:12px}
+.card-header .right{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-header .post-comment{vertical-align: -webkit-baseline-middle;vertical-align: sub;}
+.card-header .post-comment:before{content: '';display: inline-block;width: 22px;height: 22px;margin-right: 3px;vertical-align: middle;background:#757575 url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 1v16.981h4v5.019l7-5.019h13v-16.981h-24zm7 10c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z' fill='%23fff'/%3E%3C/svg%3E") center / 10px no-repeat;border-radius: 100px;}
+.card-header a{color:#757575}
 
 /* LOADMORE */
-.loadmore{margin:20px 0;padding:10px 0;display:block;text-align:center}
+.multi-posts #content .loadmore{margin:20px 0;padding:10px 0;display:block;text-align:center}
 .loadmore-btn{cursor:pointer;padding:8px 24px;background:#4285f4;color:#fff;border-radius:50px;font-family:'Quicksand',sans-serif;font-weight:600;outline:0;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
 .loadmore-btn.loading,.loadmore-btn.loading:hover,.loadmore-btn.no-more,.loadmore-btn.no-more:hover{background:#fff;color:#888;cursor:wait}
 #blog-pager .loadmore-btn.no-more{cursor:default}
@@ -236,10 +249,9 @@ border-radius: 7px;}
 
 /* SIDEBAR */
 @media only screen and (max-width: 767.98px){
-#content,#sidebar{grid-column: span 12}
-}
-@media only screen and (max-width: 425px){
-#content .post .post-thumbnail,#content .post .post-text{grid-column: span 12;}
+#content,#sidebar{grid-column: span 12;}
+#main-wrapper{grid-gap:0}
+.single-post #content .post{margin-left: -15px;margin-right:-15px;border-radius:0!important}
 }
 #sidebar .widget{font:$(sidebar.widget.font)}
 #sidebar,#sidebar-static{margin-bottom: 20px;}
@@ -255,7 +267,7 @@ border-radius: 7px;}
 #sidebar .HTML h3.title::before{display:none;}
 
 /* POPULAR POST WIDGET */
-#sidebar .widget.PopularPosts h3.title::before{background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z' fill='%23fff'/%3E%3C/svg%3E");}
+#sidebar .widget.PopularPosts h3.title::before{background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.55,11.2C17.32,10.9 17.05,10.64 16.79,10.38C16.14,9.78 15.39,9.35 14.76,8.72C13.3,7.26 13,4.85 13.91,3C13,3.23 12.16,3.75 11.46,4.32C8.92,6.4 7.92,10.07 9.12,13.22C9.16,13.32 9.2,13.42 9.2,13.55C9.2,13.77 9.05,13.97 8.85,14.05C8.63,14.15 8.39,14.09 8.21,13.93C8.15,13.88 8.11,13.83 8.06,13.76C6.96,12.33 6.78,10.28 7.53,8.64C5.89,10 5,12.3 5.14,14.47C5.18,14.97 5.24,15.47 5.41,15.97C5.55,16.57 5.81,17.17 6.13,17.7C7.17,19.43 9,20.67 10.97,20.92C13.07,21.19 15.32,20.8 16.93,19.32C18.73,17.66 19.38,15 18.43,12.72L18.3,12.46C18.1,12 17.83,11.59 17.5,11.21L17.55,11.2M14.45,17.5C14.17,17.74 13.72,18 13.37,18.1C12.27,18.5 11.17,17.94 10.5,17.28C11.69,17 12.39,16.12 12.59,15.23C12.76,14.43 12.45,13.77 12.32,13C12.2,12.26 12.22,11.63 12.5,10.94C12.67,11.32 12.87,11.7 13.1,12C13.86,13 15.05,13.44 15.3,14.8C15.34,14.94 15.36,15.08 15.36,15.23C15.39,16.05 15.04,16.95 14.44,17.5H14.45Z' fill='%23fff'/%3E%3C/svg%3E");}
 #sidebar .widget.PopularPosts div[role="feed"]{counter-reset:PopularPosts}
 #sidebar .widget.PopularPosts .post{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:nowrap;clear:both;margin-left:7.5px;margin-bottom:15px;padding-bottom:15px;position:relative;border-bottom:1px dashed #ccc}
 #sidebar .widget.PopularPosts .post:last-child{margin-bottom:0;padding-bottom:0;border:0}
@@ -266,7 +278,9 @@ border-radius: 7px;}
 #sidebar .widget.PopularPosts .item-title{font-weight:400;font-size:14px}
 #sidebar .widget.PopularPosts .item-title a{color:#333}
 #sidebar .widget.PopularPosts .item-title a:hover{color:$(keycolor)}
-#sidebar .widget.PopularPosts .item-snippet,.PopularPosts .item-info{font-size:12px;color:#757575;margin-top:5px;line-height:18px;word-break:break-word}
+#sidebar .widget.PopularPosts .item-snippet,#sidebar .widget.PopularPosts .item-info{font-size:12px;color:#757575;margin-top:5px;line-height:18px;word-break:break-word}
+#sidebar .widget.PopularPosts .item-info svg{width:12px;height:12px;}
+#sidebar .widget.PopularPosts .item-info svg path{fill:#757575}
 
 /* LABEL WIDGET */
 #sidebar .widget.Label h3.title::before{background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.5,9A1.5,1.5 0 0,0 7,7.5A1.5,1.5 0 0,0 5.5,6A1.5,1.5 0 0,0 4,7.5A1.5,1.5 0 0,0 5.5,9M17.41,11.58C17.77,11.94 18,12.44 18,13C18,13.55 17.78,14.05 17.41,14.41L12.41,19.41C12.05,19.77 11.55,20 11,20C10.45,20 9.95,19.78 9.58,19.41L2.59,12.42C2.22,12.05 2,11.55 2,11V6C2,4.89 2.89,4 4,4H9C9.55,4 10.05,4.22 10.41,4.58L17.41,11.58M13.54,5.71L14.54,4.71L21.41,11.58C21.78,11.94 22,12.45 22,13C22,13.55 21.78,14.05 21.42,14.41L16.04,19.79L15.04,18.79L20.75,13L13.54,5.71Z' fill='%23fff'/%3E%3C/svg%3E");}
@@ -295,7 +309,15 @@ border-radius: 7px;}
 #footer .footer-top h2{font-family:'Google Sans',sans-serif;font-weight:500;text-align:left;margin-bottom:5px;color:$(footer.heading.color)}
 #footer .footer-social-icon{grid-column:span 3}
 #footer .footer-social-icon .widget{float:right}
-#footer .footer-social-icon .icon,#footer .footer-social-icon .fa{display:inline-block;padding:10px;background:#4285f4;font-size:20px;border-radius:4px;margin:0 3px 5px 0;color:#fff}
+#footer .footer-social-icon a{display:inline-block;padding: 5px 10px 8px 10px;background:#4285f4;border-radius:4px;}
+#footer .footer-social-icon a svg{width:12px;height:12px;vertical-align:middle}
+#footer .footer-social-icon a path{fill:#fff}
+#footer .footer-social-icon a:hover{background: #f2f2f2;}
+#footer .footer-social-icon a.facebook:hover path{fill:#3b5999}
+#footer .footer-social-icon a.instagram:hover path{fill:#e4405f}
+#footer .footer-social-icon a.twitter:hover path{fill:#55acee}
+#footer .footer-social-icon a.youtube:hover path{fill:#cd201f}
+#footer .footer-social-icon a.rss:hover path{fill:#f57d00}
 #footer .footer-bottom{padding:10px 0;background:$(footer.bottom.bgcolor);color:#f2f2f2;font-size:90%}
 #footer .footer-copyright,#footer .footer-menu{grid-column:span 6}
 #footer .footer-bottom a{color:#fff}
@@ -315,41 +337,43 @@ border-radius: 7px;}
 
 /* SINGLE POST */
 .single-post #content .post{display: block;background-color: #fff;border-top: 5px solid $(keycolor);padding: 20px;box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);border-radius: 7px;}
-.single-post .breadcrumb{color:$(body.link.color);margin-bottom:5px}
-.single-post .breadcrumb ul{list-style:none}
-.single-post .breadcrumb li{display:inline;font-size:14px}
-.single-post .breadcrumb li+li:before{padding:8px;font-family:IonIcons;content:"\f3d1"}
-.single-post .breadcrumb li a{color:inherit;text-decoration:none}
 .single-post .post-header{margin-bottom:20px}
 .single-post .post-header .post-title{font-size:38px;line-height:1.2;margin-bottom:10px}
 .single-post .post-body{font-size:16px}
 .single-post #content h1.post-title{font-size:32px;padding:0}
 
+/* BREADCRUMB */
+
+
 /* SHARE BUTTONS */
-#share-container{margin:20px auto;overflow:hidden;border-radius:3px}
-#share-link{width:100%;text-align:center;display:grid;grid-template-columns:repeat(4,1fr);grid-column-gap:10px}
-#share-link a{height:40px;line-height:40px;display:block;font-size:20px;color:#fff;transition:opacity .15s linear;float:left;border-radius:3px}
+.share-container{margin:20px auto;overflow:hidden;border-radius:3px}
+.share-link{width:100%;text-align:center;display:grid;grid-template-columns:repeat(5,1fr);grid-column-gap:10px}
+.share-link a{height:40px;line-height:40px;display:block;font-size:20px;color:#fff;transition:opacity .15s linear;float:left;border-radius:3px}
+.share-link svg{width:18px;height:18px;}
+.share-link svg path{fill:#fff;}
 @media only screen and (max-width: 400px){
-#share-link{grid-column-gap:0}
-#share-link a{border-radius:0}
+ .share-link{grid-column-gap:0}
+ .share-link a{border-radius:0}
 }
-#share-link a:hover{opacity:.8}
-#share-link .facebook{background:#3b5998}
-#share-link .twitter{background:#55acee}
-#share-link .linkedin{background:#0077b5}
-#share-link .pinterest{background:#cb2027}
-#share-link .whatsapp{background:#25d366}
+.share-link a:hover{opacity:.8}
+.share-link .facebook{background:#3b5998}
+.share-link .twitter{background:#55acee}
+.share-link .linkedin{background:#0077b5}
+.share-link .pinterest{background:#cb2027}
+.share-link .whatsapp{background:#25d366}
 
 /* AUTHORBOX */
-#content .author-profile{display:grid;grid-template-columns:repeat(12,1fr);grid-column-gap:20px;margin:20px 0;padding:20px;border:1px solid #f2f2f2;border-radius:3px}
+#content .author-profile{display:grid;grid-template-columns:repeat(12,1fr);grid-column-gap:20px;margin:20px 0;padding:20px;background: #DCE8FD;border-radius:5px}
 #content .author-image{grid-column:span 2}
 #content .author-profile .author-about{grid-column:span 10}
 #content .author-profile .author-about:only-child{grid-column:span 12}
-#content .author-image img{width:100%;height:auto;border-radius:50%}
-#content .author-profile .author-about .author-name a{font-family:'Google Sans',sans-serif;font-weight:500;font-size:18px}
-#content .author-profile .author-about .author-name::after{content:'\f149';font-family:'IonIcons';vertical-align:top}
-#content .author-profile .author-about .author-desc{font-family:'Roboto',sans-serif;color:#777}
-#content .author-profile .author-link a{display:inline-block;float:left;width:20px;height:20px;background-color:rgba(155,155,155,0.2);font-size:13px;color:#9f9f9f;text-align:center;line-height:20px;padding:0;margin:10px 7px 0 0;border-radius:3px}
+#content .author-image img{width:100%;height:auto;border-radius:5px}
+#content .author-profile .author-about .author-name a{font-weight:700;font-size:18px}
+#content .author-profile .author-about .author-name::after{content:'';background:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-7.007 1.455 1.403-8 8.597z' fill='%234285f4'/%3E%3C/svg%3E") center /14px no-repeat;padding:0 10px;vertical-align:super}
+#content .author-profile .author-about .author-desc{color:#666}
+#content .author-profile .author-link a{display:inline-block;float:left;width:20px;height:20px;background-color:#86B1F8;text-align:center;line-height:20px;padding:0;margin:10px 7px 0 0;border-radius:3px}
+#content .author-profile .author-link a svg{width: 12px;height:12px;vertical-align:middle}
+#content .author-profile .author-link a svg path{fill:#fff}
 @media only screen and (max-width: 400px){
 #content .author-profile{grid-column-gap:0;text-align:center}
 #content .author-profile .author-image{grid-column:span 12;text-align:center}
@@ -359,9 +383,12 @@ border-radius: 7px;}
 }
 
 /* RELATED POSTS */
-.related-post{margin-bottom:20px}
-.related-post h4{font-size:18px;font-weight:500;font-family:'Google Sans',sans-serif;margin-bottom:10px}
-.related-post-style-3{display:grid;grid-template-columns:repeat(4,1fr);grid-gap:10px}
+.related-post{margin:20px 0;}
+.related-post h4{font-size:17px;font-weight:700;margin-bottom:10px}
+.related-post h4:before{content:'';border-radius: 3px;margin-right:10px;padding:0 11px;}
+.related-post h4:before{background:$(keycolor) url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z' fill='%23fff'/%3E%3C/svg%3E") center /14px no-repeat;}
+.related-post-style-3{display:grid;grid-template-columns:repeat(4,1fr);grid-gap:10px;border-top: 5px solid #4285f4;border-radius: 7px;background: #ffffff;padding: 20px;box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);}
+.related-post-style-3 .related-post-item-thumbnail{border-radius:5px}
 .related-post-style-3 .related-post-item-thumbnail,.related-post-style-3 .related-post-item-title{margin-bottom:5px}
 .related-post-style-3 .related-post-item-title,.related-post-style-3 .related-post-item-date{display:block}
 .related-post-style-3 .related-post-item-date{font-size:13px}
@@ -373,77 +400,61 @@ border-radius: 7px;}
 .related-post-style-3{grid-template-columns:repeat(2,1fr)}
 }
 
-/* COMMENT FORM */
-#comments .title{font-size:18px;font-weight:500;font-family:'Google Sans',sans-serif}
-#comments-block{margin:15px 0}
-.comment-body{padding:15px 0;margin:0}
-.comment-body p{margin:0}
-.comment-form{overflow:hidden;margin-top:20px}
-.comment-form p{padding:15px;border:2px solid #f2f2f2;border-radius:5px;margin-bottom:15px}
-.comment-footer{margin:0 0 30px}
-#comments-block .avatar-image-container{display:none}
-h4#comment-post-message{display:none;margin:0}
-.comments{clear:both;margin-top:10px;margin-bottom:0}
-.comments .comments-content{font-size:14px;margin-bottom:30px}
-.comments .comments-content .comment-thread ol{text-align:left;margin:13px 0;padding:0;list-style:none}
-.comment .avatar-image-container{float:left;max-height:36px;overflow:hidden;width:36px}
-.comments .avatar-image-container img{max-width:34px;border-radius:17px}
-.comments .comment-block{position:relative;padding:15px;margin-left:45px;border:2px solid #f2f2f2;border-radius:5px;word-break:break-word}
-.comments .comments-content .comment-replies{margin:10px 0;margin-left:45px}
-.comments .comments-content .comment-thread:empty{display:none}
-.comments .comment-replybox-single{margin-left:45px;margin:20px 0}
-.comments .comment-replybox-thread{margin:20px 0}
-.comments .comments-content .comment{margin-bottom:6px;padding:0}
-.comments .comments-content .comment:first-child{padding:0;margin:0}
-.comments .comments-content .comment:last-child{padding:0;margin:0}
-.comments .comment-thread.inline-thread .comment,.comments .comment-thread.inline-thread .comment:last-child{margin:0 0 5px 14%}
-.comment .comment-thread.inline-thread .comment:nth-child(6){margin:0 0 5px 12%}
-.comment .comment-thread.inline-thread .comment:nth-child(5){margin:0 0 5px 10%}
-.comment .comment-thread.inline-thread .comment:nth-child(4){margin:0 0 5px 8%}
-.comment .comment-thread.inline-thread .comment:nth-child(3){margin:0 0 5px 4%}
-.comment .comment-thread.inline-thread .comment:nth-child(2){margin:0 0 5px 2%}
-.comment .comment-thread.inline-thread .comment:nth-child(1){margin:0 0 5px 0}
-.comments .comments-content .comment-thread{margin:0;padding:0}
-.comments .comments-content .inline-thread{background:#fff;margin:0}
-.comments .comments-content .icon.blog-author{display:inline;height:18px;margin:0 0 -4px 6px;width:18px}
-.comments .comments-content .icon.blog-author::after{content:"\f149";font-family:IonIcons;font-style:normal;font-weight:normal;text-decoration:inherit;padding-right:4px;color:#175a96}
-.comments .comments-content .comment-header{font-size:14px;margin:0 0 15px}
-.comments .comments-content .comment-content{margin:0 0 15px;text-align:left;line-height:1.6}
-.comments .comments-content .datetime{margin-left:6px}
-.comments .comments-content .datetime a{color:#bbb}
-.comments .comments-content .user{font-weight:bold;font-style:normal}
-.comments .comment .comment-actions a{display:inline-block;font-size:13px;line-height:15px;margin:4px 8px 0 0}
-.comments .continue a{display:inline-block;font-size:13px;padding:.5em}
-.comments .comment .comment-actions a:hover,.comments .continue a:hover{text-decoration:underline}
-.pesan-komentar p{margin:5px 0 15px}
-.deleted-comment{font-style:italic;opacity:.5}
-.comments .comments-content .loadmore{cursor:pointer;margin-top:3em;max-height:3em}
+/* COMMENT */
+#comments{margin-top:30px;}
+#comments .hidden{display:none;}
+#comments .comments-content .icon.blog-author{width:14px;height:14px;margin-left:5px;vertical-align:-1px;display:inline-block;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z' fill='%23118ff9'/%3E%3C/svg%3E") center no-repeat;}
+#comments .comments-content, #comments.embed[data-num-comments="0"] .footer{background-color:#fff;border-top:5px solid $(keycolor);padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);border-radius:7px;}
+#comments .comment-thread ol{margin:0;padding-left:0;}
+#comments .comment-thread ol>li{border-bottom:1px dashed #ccc;padding-top:15px}
+#comments .comment-thread ol>li:first-child{padding-top:0}#comments .comment-thread ol>li:last-child{border-bottom:0}
+#comments .comment-thread ol>li ol{margin-top:25px}
+#comments .comment .comment-replybox-single,#comments .comment-thread .comment-replies{margin-left:45px;border-left:2px solid $(keycolor);padding-left:15px}
+#comments .comment-thread .thread-count{display:none}
+#comments .comment{list-style-type:none;padding:0 0 30px;position:relative}
+#comments .comment .comment{padding-bottom:8px;margin-bottom:15px}
+#comments .comment .comment-replies .comment{margin-bottom:25px}
+#comments .comment .comment-replies .comment:last-child{margin-bottom:15px}
+#comments .comment:target{background-color:#DCE8FD;padding:10px 10px 25px;border-radius:7px}
+#comments .comment .comment:target{padding:10px 10px 15px}
+#comments .comment .comment:target .comment-actions{margin-bottom:5px}
+#comments .comment-thread ol>li:first-child:target{padding:10px 10px 25px}
+.comment .avatar-image-container{position:absolute;width:35px;height:35px;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z' fill='%23757575'/%3E%3C/svg%3E") center / 38px no-repeat;}
+.comment .avatar-image-container img{border-radius:100px}
+.avatar-image-container svg,.comment .avatar-image-container .avatar-icon{border-radius:50%;box-sizing:border-box;fill:red;height:35px;margin:0;padding:7px;width:35px}
+.comment .comment-block{margin-left:45px;padding-bottom:0}
+#comments .comment-author-header-wrapper{margin-left:40px}
+#comments .comment .comment-header .user{font-weight:700;font-size:17px;font-style:normal}
+#comments .comment .comment-header .user,#comments .comment .comment-header .user a{color:#333}
+#comments .comment .comment-header .user a:hover{color:$(keycolor)}
+#comments .comment .comment-actions{bottom:0;margin-bottom:15px;position:absolute}
+#comments .comment .comment-replies .comment-actions{margin-bottom:0}
+#comments .comment .comment-actions a,#comments .comment .comment-actions .item-control a{margin-right:8px;font-weight:500;font-size:12px}
+#comments .comment .comment-header .datetime{bottom:0;color:#757575;display:inline-block;font-size:12px;margin-left:5px}
+#comments .comment .comment-header .datetime:before{content:'\2022';margin-right:5px;font-family:Arial,sans-serif;font-style:normal;font-size:17px;vertical-align:-2px}
+#comments .comment .comment-footer .comment-timestamp a,#comments .comment .comment-header .datetime a{color:#757575}
+#comments .comment .comment-content,.comment .comment-body{font:400 14px -apple-system,BlinkMacSystemFont,'Segoe UI','Oxygen-Sans','Helvetica Neue',Arial,sans-serif;color:#444;margin-top:5px;word-break:break-word;line-height:24px}
+#comments .comment .comment-replies .comment-content{margin-bottom:17px}
+.comment-body{margin-bottom:12px}
+#comments.embed[data-num-comments="0"] #comment-post-message,#comments.embed[data-num-comments="0"] div.comment-form>p,#comments.embed[data-num-comments="0"] p.comment-footer{display:none}
+#comment-editor-src{display:none}
 .comments .comments-content .loadmore.loaded{max-height:0;opacity:0;overflow:hidden}
-.comments .thread-chrome.thread-collapsed{display:none}
-.comments .thread-toggle{display:inline-block}
-.comments .thread-toggle .thread-arrow{display:inline-block;height:6px;margin:.3em;overflow:visible;padding-right:4px;width:7px}
-.comments .thread-expanded .thread-arrow{background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent}
-.comments .thread-collapsed .thread-arrow{background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAJUlEQVR42mNgAILy8vL/DLgASBKnApgkVgXIkhgKiNKJ005s4gDLbCZBiSxfygAAAABJRU5ErkJggg==") no-repeat scroll 0 0 transparent}
-.comments .hidden{display: none}
-@media screen and (max-device-width:480px){
-.comments .comments-content .comment-replies{margin-left:0}
-}
-@media only screen and (max-width:480px){
-.comments .comments-content .comment-replies{margin-left:20px!important}
-.comments .comment-block{padding:15px!important}
-.comment .comment-thread.inline-thread .comment{margin:0 0 0 0!important}
-}
+.comment-link{color:$(keycolor);position:relative}
+.comment-link .num_comments{margin-left:8px;vertical-align:top}
+#comment-holder .continue{display:none}
+#comment-editor{margin-bottom:20px;margin-top:20px;background:url('https://cdn.statically.io/img/3.bp.blogspot.com/-YOgg_465XHk/XVesglCnFqI/AAAAAAAAANE/FLmlskESK0gZXGpYpiQaAEAC1L7JWboSgCLcBGAs/s100/doublering-100.gif') center / 100px no-repeat;}
+#comments h3.title{text-transform:capitalize;margin-bottom: 10px;}
+#comments h3.title:before{content:'';padding: 0 10px;margin-right: 10px;border-radius: 3px;background: $(keycolor) url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9,5A4,4 0 0,1 13,9A4,4 0 0,1 9,13A4,4 0 0,1 5,9A4,4 0 0,1 9,5M9,15C11.67,15 17,16.34 17,19V21H1V19C1,16.34 6.33,15 9,15M16.76,5.36C18.78,7.56 18.78,10.61 16.76,12.63L15.08,10.94C15.92,9.76 15.92,8.23 15.08,7.05L16.76,5.36M20.07,2C24,6.05 23.97,12.11 20.07,16L18.44,14.37C21.21,11.19 21.21,6.65 18.44,3.63L20.07,2Z' fill='%23fff'/%3E%3C/svg%3E") center /14px no-repeat;}
+#comments .comment-form h4, #comments .comment-form p{display:none;}
 
 /* POST PAGINATION */
-.single-post #blog-pager{text-align:center;display:grid;grid-template-columns:repeat(12,1fr);margin-top:20px}
-.single-post #blog-pager .blog-pager-newer-link a,.single-post #blog-pager .blog-pager-older-link a{color:#fff;background:#4285f4;padding:10px 15px;border-radius:20px}
+.single-post #blog-pager{text-align:center;display:grid;grid-template-columns:repeat(12,1fr);margin:30px 0}
+.single-post #blog-pager .blog-pager-newer-link a,.single-post #blog-pager .blog-pager-older-link a{color:#fff;background:#4285f4;padding:10px 15px;border-radius:20px;box-shadow:0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24)}
 .single-post #blog-pager .blog-pager-newer-link a:hover,.single-post #blog-pager .blog-pager-older-link a:hover{background:#3c79de}
 .single-post #blog-pager .blog-pager-newer-link,.single-post #blog-pager .blog-pager-older-link{grid-column:span 6}
 .single-post #blog-pager .blog-pager-newer-link:only-child,.single-post #blog-pager .blog-pager-older-link:only-child{grid-column:span 12}
 .single-post #blog-pager .blog-pager-newer-link{text-align:left}
-.single-post #blog-pager .blog-pager-newer-link a::before{background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z' fill='%23fff'/%3E%3C/svg%3E");background-repeat: no-repeat;background-position: center center;background-size: 24px 24px;padding: 0 0 0 8px;margin-right:3px;content: '';}
 .single-post #blog-pager .blog-pager-older-link{text-align: right;}
-.single-post #blog-pager .blog-pager-older-link a::after{background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z' fill='%23fff'/%3E%3C/svg%3E");background-repeat: no-repeat;background-position: center center;background-size: 24px 24px;padding: 0 0 0 8px;margin-left:3px;content: '';}
 @media only screen and (max-width:420px){
 .single-post #blog-pager .blog-pager-newer-link{margin-bottom:20px}
 .single-post #blog-pager .blog-pager-newer-link,.single-post #blog-pager .blog-pager-older-link{grid-column:span 12;text-align:center}
@@ -465,7 +476,7 @@ body#layout div.section{margin:0 0 10px 0;padding:0}
 body#layout{max-width:1040px;background:#fff}
 body#layout .sidebar-sticky{z-index:0}
 body#layout #wrapper{overflow:unset}
-body#layout::before{content:"Flaterion v0.5";position:absolute;top:20px;right:20px;z-index:1;padding:10px 20px;font-size:18px;font-weight:700;color:#4285f4;background:#fff;border-radius:20px;border:1px solid #4285f4;cursor:pointer;}
+body#layout::before{content:"Frezhify v0.5";position:absolute;top:20px;right:20px;z-index:1;padding:10px 20px;font-size:18px;font-weight:700;color:#4285f4;background:#fff;border-radius:20px;border:1px solid #4285f4;cursor:pointer;}
 body#layout .widget-content{box-shadow:none}
 body#layout .section h4{margin:0 24px 0 0;display:none}
 body#layout div.section{background:transparent;border:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -565,7 +576,7 @@ body#layout .section#sidebar-sticky::before{
               <a expr:href='data:post.url' expr:title='data:post.title'><data:post.title/></a>
             </h3>
             <div class='item-info'>
-              <i class='icon ion-md-calendar'/> <data:post.date/> &amp;nbsp; <i class='icon ion-md-chatboxes'/> <data:post.numberOfComments/>
+              <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M17 3v-2c0-.552.447-1 1-1s1 .448 1 1v2c0 .552-.447 1-1 1s-1-.448-1-1zm-12 1c.553 0 1-.448 1-1v-2c0-.552-.447-1-1-1-.553 0-1 .448-1 1v2c0 .552.447 1 1 1zm13 13v-3h-1v4h3v-1h-2zm-5 .5c0 2.481 2.019 4.5 4.5 4.5s4.5-2.019 4.5-4.5-2.019-4.5-4.5-4.5-4.5 2.019-4.5 4.5zm11 0c0 3.59-2.91 6.5-6.5 6.5s-6.5-2.91-6.5-6.5 2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5zm-14.237 3.5h-7.763v-13h19v1.763c.727.33 1.399.757 2 1.268v-9.031h-3v1c0 1.316-1.278 2.339-2.658 1.894-.831-.268-1.342-1.111-1.342-1.984v-.91h-9v1c0 1.316-1.278 2.339-2.658 1.894-.831-.268-1.342-1.111-1.342-1.984v-.91h-3v21h11.031c-.511-.601-.938-1.273-1.268-2z'/></svg> <data:post.date/> &amp;nbsp; <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M0 1v16.981h4v5.019l7-5.019h13v-16.981h-24zm7 10c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z'/></svg> <data:post.numberOfComments/>
             </div>
             <b:if cond='data:this.postDisplay.showSnippet'>
               <b:with value='&quot;popular-posts&quot;' var='snippetPrefix'>
@@ -609,8 +620,6 @@ body#layout .section#sidebar-sticky::before{
         </b:includable>
       </b:defaultmarkup>
     </b:defaultmarkups>
-	
-    <link href='https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css' rel='stylesheet'/>
 
   </head>
 
@@ -618,6 +627,7 @@ body#layout .section#sidebar-sticky::before{
     <b:class cond='data:view.isHomepage' name='homepage'/>
     <b:class cond='data:view.isMultipleItems' name='multi-posts'/>
     <b:class cond='data:view.isSingleItem' name='single-post'/>
+    <b:class cond='data:view.isPage' name='isPage'/>
     <b:class cond='data:view.isError' name='error-page'/>
 	
     <b:include cond='data:view.isError' name='errorPage'/>
@@ -636,7 +646,7 @@ body#layout .section#sidebar-sticky::before{
                 <div class='headerLogo'>
                   <span class='navTitle'>
                     <b:section id='logo' maxwidgets='1' showaddelement='false'>
-                      <b:widget id='Header1' locked='false' title='Flaterion (Header)' type='Header' version='2' visible='true'>
+                      <b:widget id='Header1' locked='false' title='Frezhify (Header)' type='Header' version='2' visible='true'>
                         <b:widget-settings>
                           <b:widget-setting name='displayUrl'/>
                           <b:widget-setting name='displayHeight'>0</b:widget-setting>
@@ -688,7 +698,7 @@ body#layout .section#sidebar-sticky::before{
                 </div>
                 <div class='headerRight headerBtn text'>
                     <a class='single btnSearch mobile' href='javascript:void(0);' style='display: none;'>
-                        <i class='icon ion-ios-search'/>
+                      <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z'/></svg>
                     </a>
                   <div class='blog_menu' id='blog_menu' name='Menu'>
                     <ul itemscope='' itemtype='https://schema.org/SiteNavigationElement' role='navigation'>
@@ -701,8 +711,8 @@ body#layout .section#sidebar-sticky::before{
                           <li><a href='#' itemprop='url'>Submenu 3</a></li>
                         </ul>
                       </li>
-                      <li><a href='#' itemprop='url'><span itemprop='name'>Menu</span></a></li>
-                      <li><a href='#' itemprop='url'><span itemprop='name'>Free Download</span></a></li>
+                      <li><a href='/p/page.html' itemprop='url'><span itemprop='name'>Page</span></a></li>
+                      <li><a href='/p/licence.html' itemprop='url'><span itemprop='name'>Licence</span></a></li>
                       <div class='clear'/>
                     </ul>
                     <div class='closeMenu'/>
@@ -712,11 +722,13 @@ body#layout .section#sidebar-sticky::before{
                   <form expr:action='data:blog.searchUrl'>
                     <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
                     <b:include name='urlParamsAsFormInput'/>
-                    <i class='icon ion-ios-arrow-back'/>
-                    <i class='icon ion-ios-search'/>
+                    <svg class='back mobile' viewBox='0 0 24 24'>
+                      <path d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z' fill='#4e5665'/>
+                    </svg>
+                    <svg class='search desktop' clip-rule='evenodd' fill-rule='evenodd' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z' fill='#4e5665'/></svg>
                     <input autocomplete='off' class='text' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' itemprop='query-input' name='q' type='text'/>
                     <input name='max-results' type='hidden' value='8'/>
-                    <i class='icon ion-md-close'/>
+                    <svg class='close-icon' viewBox='0 0 24 24'><path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' fill='#aaa'/></svg>
                   </form>
                   <div class='blog_search' id='blog_search'>
                     <div class='widget'>
@@ -733,8 +745,10 @@ body#layout .section#sidebar-sticky::before{
               </div>
           </div>
           <div class='closeMenuCategory' style='display: none;'/>
-        </div>
+      </div>
     </header>
+      <!-- breadcrumb -->
+      <div class='breadcrumb' id='breadcrumb'/>
     </b:if>
 	
     <b:if cond='!data:view.isError'>
@@ -768,6 +782,7 @@ body#layout .section#sidebar-sticky::before{
                 <b:widget-setting name='showReactions'>false</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main' var='this'>
+                <!-- Search Massage -->
                 <b:if cond='data:view.search'>
                   <div class='status-msg'>
                     <data:view.search.resultsMessageHtml/>
@@ -800,18 +815,31 @@ body#layout .section#sidebar-sticky::before{
                 </a>
               </b:includable>
               <b:includable id='breadcrumb'>
-                <div class='breadcrumb'>
-                  <ul>
-                    <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
-                    <b:if cond='data:view.isPost'>
-                      <b:loop values='data:post.labels' var='item'>
-                        <li><a expr:href='data:item.url + &quot;max-results=8&quot;'><data:item.name/></a></li>
-                      </b:loop>
-                      <b:else/>
-                      <li><data:blog.pageName/></li>
-                    </b:if>
-                  </ul>
-                </div>
+              </b:includable>
+              <b:includable id='breadcrumbJSON'>
+                <b:if cond='data:view.isPost'>
+                  <script type='application/ld+json'>
+                  { 
+                    &quot;@context&quot;: &quot;https://schema.org&quot;, 
+                    &quot;@type&quot;: &quot;BreadcrumbList&quot;, 
+                    &quot;itemListElement&quot;: [{  
+                      &quot;@type&quot;: &quot;ListItem&quot;,  
+                      &quot;position&quot;: 1,  
+                      &quot;item&quot;: {   
+                        &quot;@id&quot;: &quot;<data:blog.homepageUrl/>&quot;,   
+                        &quot;name&quot;: &quot;<data:blog.title/>&quot;  
+                      } 
+                    }<b:loop index='i' values='data:post.labels' var='label'>,{  
+                      &quot;@type&quot;: &quot;ListItem&quot;,  
+                      &quot;position&quot;: <b:eval expr='data:i + 2'/>,  
+                      &quot;item&quot;: {   
+                        &quot;@id&quot;: &quot;<data:label.url/>&quot;,   
+                        &quot;name&quot;: &quot;<data:label.name/>&quot;  
+                      } 
+                    }</b:loop>]
+                  }
+                  </script>
+                </b:if>
               </b:includable>
               <b:includable id='commentAuthorAvatar'>
                 <div class='avatar-image-container'>
@@ -956,7 +984,7 @@ body#layout .section#sidebar-sticky::before{
                 </section>
               </b:includable>
               <b:includable id='commentsTitle'>
-                <h4 class='title'><data:post.numberOfComments/> <data:messages.comments/></h4>
+                <h3 class='title'><data:post.numberOfComments/> <data:messages.comments/></h3>
               </b:includable>
               <b:includable id='feedLinks'>
                 <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
@@ -992,7 +1020,6 @@ body#layout .section#sidebar-sticky::before{
                 <b:if cond='data:post.allowIframeComments'>
                   <script expr:src='data:post.iframeCommentSrc' type='text/javascript'/>
                   <div class='cmt_iframe_holder' expr:data-href='data:post.url.canonical' expr:data-viewtype='data:post.viewType'/>
-
                   <b:if cond='!data:post.embedCommentForm'>
                     <b:include data='post' name='commentsLink'/>
                   </b:if>
@@ -1033,26 +1060,38 @@ body#layout .section#sidebar-sticky::before{
               <b:includable id='post' var='post'>
                 <div class='post'>
                   <b:include data='post' name='postMeta'/>
-                  <b:if cond='data:view.isMultipleItems'>
-                    <div class="post-header">
-                      <div class="left">
-                        <div class="pic">
-                          <img expr:alt="data:post.author.name" class='lazyload' expr:data-src="resizeImage(data:post.author.authorPhoto.image, 30,&quot;1:1&quot;)" expr:title="data:post.author.name"/>
-                        </div>
-                        <div class="text">
-                          <span class="post-author vcard">
-                            <a expr:href="data:post.author.profileUrl" expr:title="data:post.author.name">
-                              <data:post.author.name/>
-                            </a>
-                          </span>
-                          <span class="post-timestamp">
-                            <time class="published updated" expr:datetime="data:post.date.ISO8601" expr:title="data:post.date.ISO8601">
-                              <data:post.date/>
-                            </time>
-                          </span>
-                        </div>
+                  <b:include data='post' name='breadcrumbJSON'/>
+                  <b:if cond='data:view.isMultipleItems or data:view.isPost'>
+                    <div class='card-header'>
+                    <div class='left'>
+                      <div class='pic'>
+                        <a expr:href='data:post.author.profileUrl' expr:title='data:post.author.name'>
+                          <img class='lazyload' expr:alt='data:post.author.name' expr:data-src='resizeImage(data:post.author.authorPhoto.image, 30,&quot;1:1&quot;)' expr:title='data:post.author.name'/>
+                        </a>
+                      </div>
+                      <div class='text'>
+                        <span class='post-author vcard'>
+                          <a expr:href='data:post.author.profileUrl' expr:title='data:post.author.name'>
+                            <data:post.author.name/>
+                          </a>
+                        </span>
+                        <span class='post-timestamp'>
+                          <time class='published updated' expr:datetime='data:post.date.ISO8601' expr:title='data:post.date.ISO8601'>
+                            <data:post.date/>
+                          </time>
+                        </span>
                       </div>
                     </div>
+                    <div class='right'>
+                      <span class='post-comment'>
+                        <a expr:href='data:post.commentsUrl' expr:title='data:post.numberOfComments + &quot; &quot; + data:messages.comments'>
+                          <data:post.numberOfComments/> <data:messages.comments/>
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                  </b:if>
+                  <b:if cond='data:view.isMultipleItems'>
                     <a class='post-thumbnail' expr:href='data:post.url' expr:title='data:post.title'>
                       <img class='lazyload' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.thumbnailUrl,300,&quot;16:9&quot;)' expr:title='data:post.title'/>
                     </a>
@@ -1067,21 +1106,16 @@ body#layout .section#sidebar-sticky::before{
                   </b:if>
                   <b:if cond='data:view.isSingleItem'>
                     <b:include data='post' name='postHeader'/>
+                    <b:include cond='data:view.isPost' data='post' name='shareButtons'/>
                     <b:include data='post' name='postBody'/>
                     <b:if cond='data:view.isPost'>
                       <b:include data='post' name='shareButtons'/>
                       <b:include data='post' name='postFooterAuthorProfile'/>
-                      <b:include data='post' name='relatedposts'/>                          
+                      <b:comment>Don&#39;t Delete This Breadcrumb</b:comment>
+                      <b:include name='breadcrumb'/>
                     </b:if>
                   </b:if>
                 </div>
-                <b:comment>
-                  <b:if cond='data:view.isMultipleItems'>
-                    <div class='post-footer'>
-                      <b:include name='postInfo'/>
-                    </div>
-                  </b:if>
-                </b:comment>
               </b:includable>
               <b:includable id='postBody' var='post'>
                 <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
@@ -1099,14 +1133,18 @@ body#layout .section#sidebar-sticky::before{
                   <!-- Post title and body -->
                   <b:include data='post' name='post'/>
 
-                  <!-- Comments -->
-                  <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
-
                   <!-- Show ad inside post container, after comments, if single item. -->
                   <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
                 </article>
+
+                <!-- Related Posts -->
+                <b:include cond='data:view.isPost' data='post' name='relatedposts'/>
                 
-                <b:include cond='!data:view.isMultipleItems and data:view.isPost' name='postPagination'/>
+                <!-- Comments -->
+                <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+                
+                <!-- Post Pagination -->
+                <b:include cond='data:view.isPost' name='postPagination'/>
 
                 <!-- Show ad outside post container (between posts) for feed pages. -->
                 <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
@@ -1135,16 +1173,16 @@ body#layout .section#sidebar-sticky::before{
                       <b:include data='post' name='aboutPostAuthor'/>
                       <div class='author-link'>
                         <a class='facebook' href='https://facebook.com/' target='_blank' title='Facebook'>
-                          <i class='icon ion-logo-facebook'/>
+                          <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z'/></svg>
                         </a>
                         <a class='twitter' href='https://twitter.com/' target='_blank' title='Twitter'>
-                          <i class='icon ion-logo-twitter'/>
+                          <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z'/></svg>
                         </a>
                         <a class='instagram' href='https://instagram.com/' target='_blank' title='Instagram'>
-                          <i class='icon ion-logo-instagram'/>
+                          <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/></svg>
                         </a>
                         <a class='whatsapp' href='https://whatsapp.com/' target='_blank' title='Whatsapp'>
-                          <i class='icon ion-logo-whatsapp'/>
+                          <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z'/></svg>
                         </a>
                       </div>
                     </div>
@@ -1155,48 +1193,9 @@ body#layout .section#sidebar-sticky::before{
               </b:includable>
               <b:includable id='postHeader' var='post'>
                 <!--<b:include name='headerByline'/>-->
-                <b:include name='breadcrumb'/>
                 <div class='post-header'>
                   <b:include data='post' name='postTitle'/>
-                  <b:include cond='data:view.isPost' name='postInfo'/>
                 </div>
-              </b:includable>
-              <b:includable id='postInfo'>
-                <b:comment>
-                  <div class='post-info'>
-                  <b:if cond='data:widgets.Blog.first.allBylineItems.author'>
-                    <span class='author'>
-                      <i class='icon ion-md-person'/>
-                      <a expr:href='data:post.author.profileUrl' expr:title='data:post.autor.name'>
-                        <data:post.author.name/>
-                      </a>
-                    </span> 
-                    &amp;nbsp;
-                  </b:if>
-                  <b:if cond='data:widgets.Blog.first.allBylineItems.timestamp'>
-                    <span class='timestamp'>
-                      <i class='icon ion-md-calendar'/>
-                      <meta expr:content='data:post.canonicalUrl' itemprop='url'/>
-                      <span class='time-info'>
-                        <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
-                          <span class='published updated' expr:content='data:post.date.ISO8601' itemprop='datePublished'>
-                            <data:post.date/>
-                          </span>
-                        </a>
-                      </span>
-                    </span>
-                    &amp;nbsp;
-                  </b:if>
-                  <b:if cond='data:widgets.Blog.first.allBylineItems.comments'>
-                    <span class='comments'>
-                      <i class='icon ion-md-chatboxes'/>
-                      <a expr:href='data:post.url + &quot;#comments&quot;' title='Show Comments'>
-                        <data:post.numberOfComments/> Comments
-                      </a>
-                    </span>
-                  </b:if>
-                </div>
-                </b:comment>
               </b:includable>
               <b:includable id='postMeta' var='post'>
                 <b:include data='post' name='postMetadataJSON'/>
@@ -1253,72 +1252,23 @@ callBack: function() {}
 </script>
 <script>
 //<![CDATA[		
-var randomRelatedIndex, showRelatedPost;
-! function (e, a, l) {
-	var g = {
-		widgetTitle: "<h4>Artikel Terkait:</h4>",
-		widgetStyle: 3,
-		homePage: "http://www.dte.web.id",
-		numPosts: 8,
-		summaryLength: 0,
-		titleLength: "auto",
-		thumbnailWidth: 170,
-		thumbnailHeight: 95,
-		noImage: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",
-		containerId: "related-post",
-		newTabLink: !1,
-		moreText: "Baca Selengkapnya",
-		callBack: function () {}
-	};
-	for (var t in relatedPostConfig) g[t] = "undefined" == relatedPostConfig[t] ? g[t] : relatedPostConfig[t];
-	var r = function (e) {
-			var t = a.createElement("script");
-			t.type = "text/javascript", t.src = e, l.appendChild(t)
-		},
-		A = function (e) {
-			var t, a, l = e.length;
-			if (0 === l) return !1;
-			for (; --l;) t = Math.floor(Math.random() * (l + 1)), a = e[l], e[l] = e[t], e[t] = a;
-			return e
-		},
-		i = "object" == typeof labelArray && 0 < labelArray.length ? "/-/" + A(labelArray)[0] : "";
-	randomRelatedIndex = function (e) {
-		var t, a, l = e.feed.openSearch$totalResults.$t - g.numPosts,
-			n = (t = 1, a = 0 < l ? l : 1, Math.floor(Math.random() * (a - t + 1)) + t);
-		r(g.homePage.replace(/\/$/, "") + "/feeds/posts/summary" + i + "?alt=json-in-script&orderby=updated&start-index=" + n + "&max-results=" + g.numPosts + "&callback=showRelatedPost")
-	}, showRelatedPost = function (e) {
-		var t, a, l, n, r = document.getElementById(g.containerId),
-			i = A(e.feed.entry),
-			s = g.widgetStyle,
-			o = g.widgetTitle + '<div class="related-post-style-' + s + '">',
-			d = g.newTabLink ? ' target="_blank"' : "";
-		if (r) {
-          	let p,m;
-          	const bln = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-			for (var h = 0; h < g.numPosts && h != i.length; h++) {
-				a = i[h].title.$t, p = new Date(i[h].published.$t), m = bln[p.getMonth()] + ' ' + p.getDate() + ', ' + p.getFullYear(), l = "auto" !== g.titleLength && g.titleLength < a.length ? a.substring(0, g.titleLength) + "&hellip;" : a, n = "media$thumbnail" in i[h] && !1 !== g.thumbnailWidth ? i[h].media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?/, "/w" + g.thumbnailWidth + "-h" + g.thumbnailHeight + "-c") : g.noImage, "summary" in i[h] && 0 < g.summaryLength && i[h].summary.$t.replace(/<br ?\/?>/g, " ").replace(/<.*?>/g, "").replace(/[<>]/g, "").substring(0, g.summaryLength);
-				for (var c = 0, u = i[h].link.length; c < u; c++) t = "alternate" == i[h].link[c].rel ? i[h].link[c].href : "#";
-				3 == s && (o += '<a class="related-post-item" title="' + a + '" href="' + t + '"' + d + '><img alt="' + l + '" class="related-post-item-thumbnail lazyload" data-src="' + n + '" width="' + g.thumbnailWidth + '" height="' + g.thumbnailHeight + '"><div class="related-post-item-tooltip"><span class="related-post-item-title">' + l + '</span>' + '<span class="related-post-item-date">' + m + '</span>' + '</div></a>')
-			}
-			r.innerHTML = o += "</div>", g.callBack()
-		}
-	}, r(g.homePage.replace(/\/$/, "") + "/feeds/posts/summary" + i + "?alt=json-in-script&orderby=updated&max-results=0&callback=randomRelatedIndex")
-}(window, document, document.getElementsByTagName("head")[0]);
+var randomRelatedIndex,showRelatedPost;!function(m,d,c){var k={widgetTitle:"<h3>Artikel Terkait:</h3>",widgetStyle:3,homePage:"http://www.dte.web.id",numPosts:8,summaryLength:0,titleLength:"auto",thumbnailWidth:170,thumbnailHeight:95,noImage:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC",containerId:"related-post",newTabLink:!1,moreText:"Baca Selengkapnya",callBack:function(){}};for(var h in relatedPostConfig){k[h]="undefined"==relatedPostConfig[h]?k[h]:relatedPostConfig[h]}var j=function(g){var a=d.createElement("script");a.type="text/javascript",a.src=g,c.appendChild(a)},b=function(o){var n,i,g=o.length;if(0===g){return !1}for(;--g;){n=Math.floor(Math.random()*(g+1)),i=o[g],o[g]=o[n],o[n]=i}return o},f="object"==typeof labelArray&&0<labelArray.length?"/-/"+b(labelArray)[0]:"";randomRelatedIndex=function(q){var o,i,g=q.feed.openSearch$totalResults.$t-k.numPosts,r=(o=1,i=0<g?g:1,Math.floor(Math.random()*(i-o+1))+o);j(k.homePage.replace(/\/$/,"")+"/feeds/posts/summary"+f+"?alt=json-in-script&orderby=updated&start-index="+r+"&max-results="+k.numPosts+"&callback=showRelatedPost")},showRelatedPost=function(z){var E,C,w,v,g=document.getElementById(k.containerId),x=b(z.feed.entry),F=k.widgetStyle,q=k.widgetTitle+'<div class="related-post-style-'+F+'">',A=k.newTabLink?' target="_blank"':"";if(g){for(var y=0;y<k.numPosts&&y!=x.length;y++){C=x[y].title.$t,p=new Date(x[y].published.$t),w="auto"!==k.titleLength&&k.titleLength<C.length?C.substring(0,k.titleLength)+"&hellip;":C,v="media$thumbnail" in x[y]&&!1!==k.thumbnailWidth?x[y].media$thumbnail.url.replace(/.*?:\/\//g,"//").replace(/\/s[0-9]+(\-c)?/,"/w"+k.thumbnailWidth+"-h"+k.thumbnailHeight+"-c"):k.noImage,"summary" in x[y]&&0<k.summaryLength&&x[y].summary.$t.replace(/<br ?\/?>/g," ").replace(/<.*?>/g,"").replace(/[<>]/g,"").substring(0,k.summaryLength);for(var B=0,D=x[y].link.length;B<D;B++){E="alternate"==x[y].link[B].rel?x[y].link[B].href:"#"}3==F&&(q+='<a class="related-post-item" title="'+C+'" href="'+E+'"'+A+'><img alt="'+w+'" class="related-post-item-thumbnail lazyload" data-src="'+v+'" width="'+k.thumbnailWidth+'" height="'+k.thumbnailHeight+'"><div class="related-post-item-tooltip"><span class="related-post-item-title">'+w+"</span></div></a>")}g.innerHTML=q+="</div>",k.callBack()}},j(k.homePage.replace(/\/$/,"")+"/feeds/posts/summary"+f+"?alt=json-in-script&orderby=updated&max-results=0&callback=randomRelatedIndex")}(window,document,document.getElementsByTagName("head")[0]);
 //]]>		
 </script>
               </b:includable>
               <b:includable id='shareButtons' var='post'>
-                <div id='share-container'>
-                  <div id='share-link'>
+                <div class='share-container'>
+                  <div class='share-link'>
                     <!-- facebook -->
-                    <a class='facebook' expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:blog.url' rel='nofollow' target='_blank'><i class='icon ion-logo-facebook'/></a>
+                    <a class='facebook' expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:blog.url' rel='nofollow' target='_blank'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z'/></svg></a>
                     <!-- twitter -->
-                    <a class='twitter' expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url' rel='nofollow' target='_blank'><i class='icon ion-logo-twitter'/></a>
-                    <!-- linkedin 
-<a class='linkedin' expr:href='&quot;http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=&quot; + data:post.url + &quot;&amp;amp;title=&quot; + data:post.title + &quot;&amp;amp;summary=&quot; + data:post.snippets' rel='nofollow' target='_blank'><i class='icon ion-logo-linkedin'></i></a> -->
+                    <a class='twitter' expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url' rel='nofollow' target='_blank'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z'/></svg></a>
+                    <!-- linkedin -->
+                    <a class='linkedin' expr:href='&quot;http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=&quot; + data:post.url + &quot;&amp;amp;title=&quot; + data:post.title + &quot;&amp;amp;summary=&quot; + data:post.snippets' rel='nofollow' target='_blank'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z'/></svg></a>
                     <!-- pinterest -->
-                    <a class='pinterest' expr:href='&quot;http://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;amp;media=&quot; + data:blog.postImageUrl + &quot;&amp;amp;description=&quot; + data:post.title' rel='nofollow' target='_blank'><i class='icon ion-logo-pinterest'/></a> 
-                    <a class='whatsapp' expr:href='&quot;https://wa.me/?text=&quot; + data:post.title + &quot;%20%2D%20&quot; + data:post.url'><i aria-hidden='true' class='icon ion-logo-whatsapp'/></a>
+                    <a class='pinterest' expr:href='&quot;http://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;amp;media=&quot; + data:blog.postImageUrl + &quot;&amp;amp;description=&quot; + data:post.title' rel='nofollow' target='_blank'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z'/></svg></a>
+                    <!-- whatsapp -->
+                    <a class='whatsapp' expr:href='&quot;https://wa.me/?text=&quot; + data:post.title + &quot;%20%2D%20&quot; + data:post.url'><svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z'/></svg></a>
                   </div>
                 </div>
               </b:includable>
@@ -1381,224 +1331,226 @@ var randomRelatedIndex, showRelatedPost;
             </b:widget>
           </b:section>
         </div>
-        <div id='sidebar'>
-          <b:section id='sidebar-static'>
-            <b:widget id='BlogArchive1' locked='false' title='Archive' type='BlogArchive' version='2' visible='true'>
-              <b:widget-settings>
-                <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
-                <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
-                <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
-                <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
-                <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
-                <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
-                <b:widget-setting name='chronological'>false</b:widget-setting>
-                <b:widget-setting name='showPosts'>false</b:widget-setting>
-                <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main' var='this'>
-  <b:include name='widget-title'/>
-  <b:include name='content'/>
-</b:includable>
-              <b:includable id='content'>
-  <div class='widget-content'>
-    <div id='ArchiveList'>
-      <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
-        <b:include cond='data:this.style == &quot;HIERARCHY&quot;' name='hierarchy'/>
-        <b:include cond='data:this.style in {&quot;FLAT&quot;, &quot;MENU&quot;}' name='flat'/>
-      </div>
-    </div>
-  </div>
-</b:includable>
-              <b:includable id='flat'>
-  <ul class='flat'>
-    <b:loop values='data:data' var='i'>
-      <li class='archivedate'>
-        <a expr:href='data:i.url'>
-          <data:i.name/>
-        </a>
-        <span class='count'><data:i.post-count/></span>
-      </li>
-    </b:loop>
-  </ul>
-</b:includable>
-              <b:includable id='hierarchy'>
-  <b:include data='data' name='interval'/>
-</b:includable>
-              <b:includable id='interval' var='intervals'>
-  <ul class='hierarchy'>
-    <b:loop values='data:intervals' var='interval'>
-      <li class='archivedate'>
-        <div class='hierarchy-title'>
-          <a class='post-count-link' expr:href='data:interval.url'>
-            <data:interval.name/>
-            <span class='post-count'><data:interval.post-count/></span>
-          </a>
-        </div>
-        <div class='hierarchy-content'>
-          <b:include cond='data:interval.data' data='interval.data' name='interval'/>
-          <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
-        </div>
-      </li>
-    </b:loop>
-  </ul>
-</b:includable>
-              <b:includable id='posts' var='posts'>
-  <ul class='posts hierarchy'>
-    <b:loop values='data:posts' var='post'>
-      <li>
-        <a expr:href='data:post.url'><data:post.title/></a>
-      </li>
-    </b:loop>
-  </ul>
-</b:includable>
-            </b:widget>
-            <b:widget id='Label1' locked='false' title='List Label' type='Label' version='2' visible='true'>
-              <b:widget-settings>
-                <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-                <b:widget-setting name='display'>LIST</b:widget-setting>
-                <b:widget-setting name='selectedLabelsList'/>
-                <b:widget-setting name='showType'>ALL</b:widget-setting>
-                <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main' var='this'>
-  <b:include name='widget-title'/>
-  <b:include name='content'/>
-</b:includable>
-              <b:includable id='cloud'>
-          <b:loop values='data:labels' var='label'>
-            <span class='label-size'>
-              <b:class expr:name='&quot;label-size-&quot; + data:label.cssSize'/>
-              <a class='label-name' expr:href='data:label.url + &quot;?max-results=8&quot;'>
-                <data:label.name/>
-                <b:if cond='data:this.showFreqNumbers'>
-                  <span class='label-count'><data:label.count/></span>
-                </b:if>
-              </a>
-            </span>
-          </b:loop>
-        </b:includable>
-              <b:includable id='content'>
-  <div class='widget-content'>
-    <b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
-    <b:include cond='data:this.display == &quot;list&quot;' name='list'/>
-    <b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
-  </div>
-</b:includable>
-              <b:includable id='list'>
-          <ul>
-            <b:loop values='data:labels' var='label'>
-              <li>
-                <a class='label-name' expr:href='data:label.url + &quot;?max-results=8&quot;'>
-                  <data:label.name/>
-                  <b:if cond='data:this.showFreqNumbers'>
-                    <span class='label-count'><data:label.count/></span>
-                  </b:if>
-                </a>
-              </li>
-            </b:loop>
-          </ul>
-        </b:includable>
-            </b:widget>
-            <b:widget id='PopularPosts1' locked='false' title='Artikel Terpopuler' type='PopularPosts' version='2' visible='true'>
-              <b:widget-settings>
-                <b:widget-setting name='numItemsToShow'>4</b:widget-setting>
-                <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-                <b:widget-setting name='showSnippets'>false</b:widget-setting>
-                <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main' var='this'>
-          <b:comment>Judul default dari Popular Post</b:comment>
-          <b:with value='data:messages.popularPostsFromThisBlog' var='defaultTitle'>
-            <b:include name='super.main'/>
-          </b:with>
-        </b:includable>
-              <b:includable id='snippetedPostContent'>
-                <b:if cond='data:this.postDisplay.showFeaturedImage'>
-                  <div class='item-thumbnail'>
-                    <a expr:href='data:post.url' expr:title='data:post.title'><img class='lazyload' expr:alt='data:post.title' expr:data-src='data:post.featuredImage ? resizeImage(data:post.featuredImage, 100, &quot;1:1&quot;) :  resizeImage(&quot;https://1.bp.blogspot.com/-aTtBK4N3Zi4/XBjti30MYbI/AAAAAAAAHAE/m2-dDbiVVEICgZ_E59Veb5ahuXf2aimmgCLcBGAs/s50/igniplex-no-image.png&quot;, 100, &quot;1:1&quot;)' expr:title='data:post.title'/></a>
-                  </div>
-                </b:if>
-                <div class='item-content'>
-                  <h3 class='item-title'>
-                    <a expr:href='data:post.url' expr:title='data:post.title'><data:post.title/></a>
-                  </h3>
-                  <div class='item-info'>
-                    <i class='icon ion-md-calendar'/> <data:post.date/> &amp;nbsp; <i class='icon ion-md-chatboxes'/> <data:post.numberOfComments/>
-                  </div>
-                  <b:if cond='data:this.postDisplay.showSnippet'>
-                    <b:with value='&quot;popular-posts&quot;' var='snippetPrefix'>
-                      <div class='item-snippet'>
-                        <data:post.snippets.short/>
+        <b:if cond='!data:view.isPage'>
+          <div id='sidebar'>
+            <b:section id='sidebar-static'>
+              <b:widget id='BlogArchive1' locked='false' title='Archive' type='BlogArchive' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
+                  <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+                  <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+                  <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
+                  <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+                  <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+                  <b:widget-setting name='chronological'>false</b:widget-setting>
+                  <b:widget-setting name='showPosts'>false</b:widget-setting>
+                  <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                  <b:include name='widget-title'/>
+                  <b:include name='content'/>
+                </b:includable>
+                <b:includable id='content'>
+                  <div class='widget-content'>
+                    <div id='ArchiveList'>
+                      <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+                        <b:include cond='data:this.style == &quot;HIERARCHY&quot;' name='hierarchy'/>
+                        <b:include cond='data:this.style in {&quot;FLAT&quot;, &quot;MENU&quot;}' name='flat'/>
                       </div>
-                    </b:with>
-                  </b:if>
-                </div>
-              </b:includable>
-            </b:widget>
-            <b:widget id='Label2' locked='false' title='Cloud Label' type='Label' version='2' visible='true'>
-              <b:widget-settings>
-                <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-                <b:widget-setting name='display'>CLOUD</b:widget-setting>
-                <b:widget-setting name='selectedLabelsList'>Bank,Board,Business,Design,Economy,Festivals,Financial,Food,Games,Image Rating</b:widget-setting>
-                <b:widget-setting name='showType'>ALL</b:widget-setting>
-                <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main' var='this'>
-                <b:include name='widget-title'/>
-                <b:include name='content'/>
-              </b:includable>
-              <b:includable id='cloud'>
-                <b:class name='cloud'/>
-                <ul>
-                <b:loop values='data:labels' var='label'>
-                  <li>
-                    <a expr:href='data:label.url + &quot;?max-results=8&quot;' expr:title='data:label.name'>
-                      <data:label.name/>
-                      <b:if cond='data:this.showFreqNumbers'>
-                        <span class='label-count'><data:label.count/></span>
-                      </b:if>
-                    </a>
-                  </li>
-                </b:loop>
-                </ul>
-              </b:includable>
-              <b:includable id='content'>
-                <div class='widget-content'>
-                  <b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
-                  <b:include cond='data:this.display == &quot;list&quot;' name='list'/>
-                  <b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
-                </div>
-              </b:includable>
-              <b:includable id='list'>
-                <ul>
+                    </div>
+                  </div>
+                </b:includable>
+                <b:includable id='flat'>
+                  <ul class='flat'>
+                    <b:loop values='data:data' var='i'>
+                      <li class='archivedate'>
+                        <a expr:href='data:i.url'>
+                          <data:i.name/>
+                        </a>
+                        <span class='count'><data:i.post-count/></span>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+                <b:includable id='hierarchy'>
+                  <b:include data='data' name='interval'/>
+                </b:includable>
+                <b:includable id='interval' var='intervals'>
+                  <ul class='hierarchy'>
+                    <b:loop values='data:intervals' var='interval'>
+                      <li class='archivedate'>
+                        <div class='hierarchy-title'>
+                          <a class='post-count-link' expr:href='data:interval.url'>
+                            <data:interval.name/>
+                            <span class='post-count'><data:interval.post-count/></span>
+                          </a>
+                        </div>
+                        <div class='hierarchy-content'>
+                          <b:include cond='data:interval.data' data='interval.data' name='interval'/>
+                          <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
+                        </div>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+                <b:includable id='posts' var='posts'>
+                  <ul class='posts hierarchy'>
+                    <b:loop values='data:posts' var='post'>
+                      <li>
+                        <a expr:href='data:post.url'><data:post.title/></a>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+              </b:widget>
+              <b:widget id='Label1' locked='false' title='List Label' type='Label' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+                  <b:widget-setting name='display'>LIST</b:widget-setting>
+                  <b:widget-setting name='selectedLabelsList'/>
+                  <b:widget-setting name='showType'>ALL</b:widget-setting>
+                  <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                  <b:include name='widget-title'/>
+                  <b:include name='content'/>
+                </b:includable>
+                <b:includable id='cloud'>
                   <b:loop values='data:labels' var='label'>
-                    <li>
+                    <span class='label-size'>
+                      <b:class expr:name='&quot;label-size-&quot; + data:label.cssSize'/>
                       <a class='label-name' expr:href='data:label.url + &quot;?max-results=8&quot;'>
                         <data:label.name/>
                         <b:if cond='data:this.showFreqNumbers'>
                           <span class='label-count'><data:label.count/></span>
                         </b:if>
                       </a>
-                    </li>
+                    </span>
                   </b:loop>
-                </ul>
-              </b:includable>
-            </b:widget>
-          </b:section>
-          <b:section id='sidebar-sticky'>
-            <b:widget id='HTML1' locked='false' title='Sticky Widget' type='HTML' visible='true'>
-              <b:widget-settings>
-                <b:widget-setting name='content'>Ini Konten Sticky</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-</b:includable>
-            </b:widget>
-          </b:section>
-        </div>
+                </b:includable>
+                <b:includable id='content'>
+                  <div class='widget-content'>
+                    <b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
+                    <b:include cond='data:this.display == &quot;list&quot;' name='list'/>
+                    <b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
+                  </div>
+                </b:includable>
+                <b:includable id='list'>
+                  <ul>
+                    <b:loop values='data:labels' var='label'>
+                      <li>
+                        <a class='label-name' expr:href='data:label.url + &quot;?max-results=8&quot;'>
+                          <data:label.name/>
+                          <b:if cond='data:this.showFreqNumbers'>
+                            <span class='label-count'><data:label.count/></span>
+                          </b:if>
+                        </a>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+              </b:widget>
+              <b:widget id='PopularPosts1' locked='false' title='Artikel Terpopuler' type='PopularPosts' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='numItemsToShow'>4</b:widget-setting>
+                  <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                  <b:widget-setting name='showSnippets'>false</b:widget-setting>
+                  <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                  <b:comment>Judul default dari Popular Post</b:comment>
+                  <b:with value='data:messages.popularPostsFromThisBlog' var='defaultTitle'>
+                    <b:include name='super.main'/>
+                  </b:with>
+                </b:includable>
+                <b:includable id='snippetedPostContent'>
+                  <b:if cond='data:this.postDisplay.showFeaturedImage'>
+                    <div class='item-thumbnail'>
+                      <a expr:href='data:post.url' expr:title='data:post.title'><img class='lazyload' expr:alt='data:post.title' expr:data-src='data:post.featuredImage ? resizeImage(data:post.featuredImage, 100, &quot;1:1&quot;) :  resizeImage(&quot;https://1.bp.blogspot.com/-aTtBK4N3Zi4/XBjti30MYbI/AAAAAAAAHAE/m2-dDbiVVEICgZ_E59Veb5ahuXf2aimmgCLcBGAs/s50/igniplex-no-image.png&quot;, 100, &quot;1:1&quot;)' expr:title='data:post.title'/></a>
+                    </div>
+                  </b:if>
+                  <div class='item-content'>
+                    <h3 class='item-title'>
+                      <a expr:href='data:post.url' expr:title='data:post.title'><data:post.title/></a>
+                    </h3>
+                    <div class='item-info'>
+                      <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M17 3v-2c0-.552.447-1 1-1s1 .448 1 1v2c0 .552-.447 1-1 1s-1-.448-1-1zm-12 1c.553 0 1-.448 1-1v-2c0-.552-.447-1-1-1-.553 0-1 .448-1 1v2c0 .552.447 1 1 1zm13 13v-3h-1v4h3v-1h-2zm-5 .5c0 2.481 2.019 4.5 4.5 4.5s4.5-2.019 4.5-4.5-2.019-4.5-4.5-4.5-4.5 2.019-4.5 4.5zm11 0c0 3.59-2.91 6.5-6.5 6.5s-6.5-2.91-6.5-6.5 2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5zm-14.237 3.5h-7.763v-13h19v1.763c.727.33 1.399.757 2 1.268v-9.031h-3v1c0 1.316-1.278 2.339-2.658 1.894-.831-.268-1.342-1.111-1.342-1.984v-.91h-9v1c0 1.316-1.278 2.339-2.658 1.894-.831-.268-1.342-1.111-1.342-1.984v-.91h-3v21h11.031c-.511-.601-.938-1.273-1.268-2z'/></svg> <data:post.date/> &amp;nbsp; <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M0 1v16.981h4v5.019l7-5.019h13v-16.981h-24zm7 10c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z'/></svg> <data:post.numberOfComments/>
+                    </div>
+                    <b:if cond='data:this.postDisplay.showSnippet'>
+                      <b:with value='&quot;popular-posts&quot;' var='snippetPrefix'>
+                        <div class='item-snippet'>
+                          <data:post.snippets.short/>
+                        </div>
+                      </b:with>
+                    </b:if>
+                  </div>
+                </b:includable>
+              </b:widget>
+              <b:widget id='Label2' locked='false' title='Cloud Label' type='Label' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+                  <b:widget-setting name='display'>CLOUD</b:widget-setting>
+                  <b:widget-setting name='selectedLabelsList'>Bank,Board,Business,Design,Economy,Festivals,Financial,Food,Games,Image Rating</b:widget-setting>
+                  <b:widget-setting name='showType'>ALL</b:widget-setting>
+                  <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                  <b:include name='widget-title'/>
+                  <b:include name='content'/>
+                </b:includable>
+                <b:includable id='cloud'>
+                  <b:class name='cloud'/>
+                  <ul>
+                    <b:loop values='data:labels' var='label'>
+                      <li>
+                        <a expr:href='data:label.url + &quot;?max-results=8&quot;' expr:title='data:label.name'>
+                          <data:label.name/>
+                          <b:if cond='data:this.showFreqNumbers'>
+                            <span class='label-count'><data:label.count/></span>
+                          </b:if>
+                        </a>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+                <b:includable id='content'>
+                  <div class='widget-content'>
+                    <b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
+                    <b:include cond='data:this.display == &quot;list&quot;' name='list'/>
+                    <b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
+                  </div>
+                </b:includable>
+                <b:includable id='list'>
+                  <ul>
+                    <b:loop values='data:labels' var='label'>
+                      <li>
+                        <a class='label-name' expr:href='data:label.url + &quot;?max-results=8&quot;'>
+                          <data:label.name/>
+                          <b:if cond='data:this.showFreqNumbers'>
+                            <span class='label-count'><data:label.count/></span>
+                          </b:if>
+                        </a>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+              </b:widget>
+            </b:section>
+            <b:section id='sidebar-sticky'>
+              <b:widget id='HTML1' locked='false' title='Sticky Widget' type='HTML' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'>Ini Konten Sticky</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <b:include name='widget-title'/>
+                  <div class='widget-content'>
+                    <data:content/>
+                  </div>
+                </b:includable>
+              </b:widget>
+            </b:section>
+          </div>
+        </b:if>
       </div>
       </div>
     </b:if>
@@ -1607,30 +1559,39 @@ var randomRelatedIndex, showRelatedPost;
     <footer id='footer'>
       <div class='footer-top grid wrapper'>
         <div class='footer-logo'>
-          <span style='font-family:&apos;Google Sans&apos;, sans-serif;text-align:center;line-height: 1.2;color: #4285f4;font-size: 32px; font-weight: 500;'>Flaterion <span style='color:#4e5665'>Theme</span></span>
+          <span style='font-family:&apos;Google Sans&apos;, sans-serif;text-align:center;line-height: 1.2;color: #4285f4;font-size: 32px; font-weight: 500;'>Frezhify <span style='color:#4e5665'>Theme</span></span>
         </div>
         <div class='footer-about'>
-          <h2>About Us</h2>
+          <h2>About</h2>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti ullam laudantium culpa laboriosam
-            aspernatur.
+            Frezhify is a free responsive template blogger.
           </p>
         </div>
         <div class='footer-social-icon'>
           <div class='widget'>
             <h2>Follow Us</h2>
-            <a href=''><i class='icon ion-logo-facebook'/></a>
-            <a href=''><i class='icon ion-logo-instagram'/></a>
-            <a href=''><i class='icon ion-logo-twitter'/></a>
-            <a href=''><i class='icon ion-logo-youtube'/></a>
-            <a href=''><i class='icon ion-logo-rss'/></a>
+            <a class='facebook' href='https://www.facebook.com/'>
+              <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z'/></svg>
+            </a>
+            <a class='instagram' href=''>
+              <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/></svg>
+            </a>
+            <a class='twitter' href=''>
+              <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z'/></svg>
+            </a>
+            <a class='youtube' href=''>
+              <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z'/></svg>
+            </a>
+            <a class='rss' href=''>
+              <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z'/></svg>
+            </a>
           </div>
         </div>
       </div>
       <div class='footer-bottom'>
         <div class='wrapper grid'>
           <div class='footer-copyright'>
-            <a expr:href='data:blog.homepageUrl'><data:blog.title/></a> &amp;copy; Copyright 2019. Theme By Arfan.id
+            <a expr:href='data:blog.homepageUrl'><data:blog.title/></a> &amp;copy; Copyright 2019. Theme By <a href='https://www.arfan.id/' rel='nofollow'>Arfan.id</a>
           </div>
           <div class='footer-menu'>
             <a href='#'>Contact</a>
@@ -1704,21 +1665,21 @@ var randomRelatedIndex, showRelatedPost;
           $('.headerSearch').addClass('mobile').show();
           $('.headerSearch form .text').focus();
         });
-        $(document).on('click', '.headerSearch i.ion-ios-arrow-back', function () {
+        $(document).on('click', '.headerSearch svg.back', function () {
           $('.headerSearch').removeClass('mobile');
           $('.headerSearch').addClass('desktop').show();
           $('.headerSearch form .text').blur();
         });
         $(document).on('click', '.blog_search', function () {
           if (cekMobile === true) {
-            $('.headerSearch i.ion-ios-arrow-back').trigger('click');
+            $('.headerSearch svg.back').trigger('click');
           };
-          $('.headerSearch form i.ion-md-close').trigger('click');
+          $('.headerSearch form svg.close-icon').trigger('click');
         });
         $(document).on('keyup', '.headerSearch form .text', function () {
           if (event.keyCode === 13) {
             if (cekMobile === true) {
-              $('.headerSearch i.ion-ios-arrow-back').trigger('click');
+              $('.headerSearch svg.back').trigger('click');
             } else {
               $('.blog_search').hide();
             };
@@ -1727,15 +1688,15 @@ var randomRelatedIndex, showRelatedPost;
         $('.headerSearch form .text').keyup(function () {
           if ($(this).val() != '') {
             $('.blog_search').show();
-            $('.headerSearch form i.ion-md-close').show();
+            $('.headerSearch form svg.close-icon').show();
           } else {
             $('.blog_search').hide();
-            $('.headerSearch form i.ion-md-close').hide();
+            $('.headerSearch form svg.close-icon').hide();
           }
         });
-        $(document).on('click', '.headerSearch form i.ion-md-close', function () {
+        $(document).on('click', '.headerSearch form svg.close-icon', function () {
           $('.blog_search').hide();
-          $('.headerSearch form i.ion-md-close').hide();
+          $('.headerSearch form svg.close-icon').hide();
           $('.headerSearch form .text').val('');
         });
         $(document).on('click', '#toggle-menu', function () {
