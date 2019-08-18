@@ -1,2 +1,2 @@
-# Flaterion
-Flaterion - Open Source Magazine Blogger Template
+# Frezhify
+Frezhify - Open Source Magazine Blogger Template
