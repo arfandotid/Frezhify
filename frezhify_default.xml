@@ -712,7 +712,6 @@ body#layout .section#sidebar-sticky::before{
                         </ul>
                       </li>
                       <li><a href='/p/page.html' itemprop='url'><span itemprop='name'>Page</span></a></li>
-                      <li><a href='/p/licence.html' itemprop='url'><span itemprop='name'>Licence</span></a></li>
                       <div class='clear'/>
                     </ul>
                     <div class='closeMenu'/>
