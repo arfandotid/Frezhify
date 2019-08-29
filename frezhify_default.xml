@@ -211,7 +211,7 @@ body.hideScroll{overflow:hidden}
 .multi-posts .post-outer .post .post-title{font-size:13px;padding: 7px 10px;}
 .multi-posts #content .post-outer .card-header{font-size:11px;padding: 10px 10px 15px}
 .multi-posts #content .post-outer .card-header .right .post-comment{display:none}
-.multi-posts .post-outer .post .post-thumbnail{display:block;width:100%;}
+.multi-posts .post-outer .post .post-thumbnail{display:block;width: 100%;}
 }
 @media screen and (max-width:400px){
   .multi-posts #content .blog-posts{grid-template-columns:1fr;grid-gap:20px;}
@@ -476,7 +476,7 @@ body#layout div.section{margin:0 0 10px 0;padding:0}
 body#layout{max-width:1040px;background:#fff}
 body#layout .sidebar-sticky{z-index:0}
 body#layout #wrapper{overflow:unset}
-body#layout::before{content:"Frezhify v1.0";position:absolute;top:20px;right:20px;z-index:1;padding:10px 20px;font-size:18px;font-weight:700;color:#4285f4;background:#fff;border-radius:20px;border:1px solid #4285f4;cursor:pointer;}
+body#layout::before{content:"Frezhify v0.5";position:absolute;top:20px;right:20px;z-index:1;padding:10px 20px;font-size:18px;font-weight:700;color:#4285f4;background:#fff;border-radius:20px;border:1px solid #4285f4;cursor:pointer;}
 body#layout .widget-content{box-shadow:none}
 body#layout .section h4{margin:0 24px 0 0;display:none}
 body#layout div.section{background:transparent;border:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -752,6 +752,30 @@ body#layout .section#sidebar-sticky::before{
 	
     <b:if cond='!data:view.isError'>
 	<div class='wrapper'>
+      <style>
+        .ads-slot{
+          display: block;
+          width: 100%;
+        }
+        .ads-slot.banner{
+          padding: 20px 0 0;
+        }
+        .ads-slot:not(.banner){
+          padding: 20px 0;
+        }
+        .preview-ads{
+          width:100%;
+          display:block;
+          padding:40px;
+          text-align:center;
+          border:1px solid #ccc;
+          border-radius: 3px;
+          background: #fff;
+        }
+      </style>
+      <div class='ads-slot banner'>
+        <div class='preview-ads'>Responsive Ads</div>
+      </div>
       <div id='main-wrapper'>
         <div id='content'>
           <b:section class='main' id='main' maxwidgets='1' showaddelement='false'>
@@ -1092,7 +1116,11 @@ body#layout .section#sidebar-sticky::before{
                   </b:if>
                   <b:if cond='data:view.isMultipleItems'>
                     <a class='post-thumbnail' expr:href='data:post.url' expr:title='data:post.title'>
-                      <img class='lazyload' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.thumbnailUrl,300,&quot;16:9&quot;)' expr:title='data:post.title'/>
+                      <b:if cond='data:post.thumbnailUrl'>
+                        <img class='lazyload' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.thumbnailUrl,300,&quot;16:9&quot;)' expr:title='data:post.title'/>
+                        <b:else/>
+                        <img class='lazyload' expr:alt='data:post.title' data-src='https://3.bp.blogspot.com/-ltyYh4ysBHI/U04MKlHc6pI/AAAAAAAADQo/PFxXaGZu9PQ/w345-h170-p-k-no-nu/no-image.png' expr:title='data:post.title'/>
+                      </b:if>
                     </a>
                     <span class='post-label'>
                       <b:loop index='i' values='data:post.labels' var='label'>
